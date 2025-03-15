@@ -16,7 +16,7 @@ app.post("/login", async (req, res) => {
   const { username } = req.body;
   const action = `User ${username} logged in at ${new Date().toISOString()}`;
   
-  await redis.lpush(USER_ACTIONS_KEY, action);  // Store in Redis list
+  await redis.lpush(USER_ACTIONS_KEY, action);
   res.json({ message: "Login successful", action });
 });
 
@@ -33,4 +33,4 @@ app.post("/update-profile", async (req, res) => {
 app.get("/", (req, res) => res.send("User Service Running"));
 
 // Start Server
-app.listen(3000, () => console.log("User Service running on port 3000"));
+app.listen(4100, () => console.log("User Service running on port 3000"));
