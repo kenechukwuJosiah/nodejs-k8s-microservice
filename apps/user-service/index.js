@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 const redis = new Redis({
-  host: process.env.REDIS_HOST || "redis-release-master",
+  host: process.env.REDIS_HOST || "redis-master",
   port: process.env.REDIS_PORT || 6379,
 });
 

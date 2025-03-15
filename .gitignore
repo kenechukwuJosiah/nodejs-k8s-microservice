@@ -51,3 +51,4 @@ instance
 /apps/user-service/node_modules
 
 /helm/report-service/values.yaml
+/helm/user-service/values.yaml
