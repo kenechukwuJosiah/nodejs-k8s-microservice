@@ -48,4 +48,4 @@ instance
 .pytest_cache
 */node_modules
 /apps/report-service/node_modules
-/app/user-service/node_modules
+/apps/user-service/node_modules
