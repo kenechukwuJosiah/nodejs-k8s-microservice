@@ -1,5 +1,5 @@
 redis:
-  REDIS_HOST: redis-master
+  REDIS_HOST: redis-release-master
   REDIS_PORT: 6379
 
 replicaCount: 2
