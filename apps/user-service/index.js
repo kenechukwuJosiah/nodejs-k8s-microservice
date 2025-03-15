@@ -16,7 +16,7 @@ app.post("/login", async (req, res) => {
   const { username } = req.body;
   const action = `User ${username} logged in at ${new Date().toISOString()}`;
   
-  await redis.lpush(USER_ACTIONS_KEY, action);  // Store in Redis list
+  await redis.lpush(USER_ACTIONS_KEY, action);
   res.json({ message: "Login successful", action });
 });
 
