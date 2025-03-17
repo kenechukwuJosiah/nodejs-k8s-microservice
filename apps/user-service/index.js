@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 const redis = new Redis({
-  host: process.env.REDIS_HOST || "redis-release-master",
+  host: process.env.REDIS_HOST || "redis-master",
   port: process.env.REDIS_PORT || 6379,
 });
 
@@ -33,4 +33,4 @@ app.post("/update-profile", async (req, res) => {
 app.get("/", (req, res) => res.send("User Service Running"));
 
 // Start Server
-app.listen(4100, () => console.log("User Service running on port 3000"));
+app.listen(4100, () => console.log("User Service running on port 4100"));

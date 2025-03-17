@@ -1,21 +1,21 @@
 redis:
-  REDIS_HOST: redis-master
+  REDIS_HOST: redis-release-master
   REDIS_PORT: 6379
 
 replicaCount: 2
 
 image:
-  name: kenechukwujosiah/nodejs-k8s-user
+  name: kenechukwujosiah/nodejs-k8s-report
   tag: latest
 
 mapconfig:
   namespace: default
 
 service:
-  name: user-service
+  name: report-service
   type: LoadBalancer
-  internalPort: 4100
-  externalPort: 4100
+  internalPort: 4000
+  externalPort: 4000
 
 resources:
   limits:
