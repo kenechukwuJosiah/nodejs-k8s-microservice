@@ -18,10 +18,10 @@ type: application
 version: 0.1.0
 
 
-dependencies:
-  - name: redis
-    version: 0.1.0
-    repository: https://charts.bitnami.com/bitnami
+# dependencies:
+#   - name: redis
+#     version: 0.1.0
+#     repository: https://charts.bitnami.com/bitnami
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to

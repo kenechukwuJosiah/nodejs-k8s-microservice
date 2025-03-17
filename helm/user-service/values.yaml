@@ -14,8 +14,8 @@ mapconfig:
 service:
   name: user-service
   type: LoadBalancer
-  internalPort: 4000
-  externalPort: 4000
+  internalPort: 4100
+  externalPort: 4100
 
 resources:
   limits:
