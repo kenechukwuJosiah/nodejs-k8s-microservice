@@ -32,4 +32,4 @@ router.get("/", (req, res) => res.send("Report Service Running"));
 app.use("/report", router);
 
 // Start Server
-app.listen(4000, () => console.log("Report Service running on port 4000"));
+app.listen(process.env.APP_PORT, () => console.log(`User Service running on port ${process.env.APP_PORT}`));

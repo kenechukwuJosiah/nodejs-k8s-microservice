@@ -32,10 +32,10 @@ userRouter.post("/update-profile", async (req, res) => {
 });
 
 // Health Check
-app.get("/", (req, res) => res.send("User Service Running"));
+userRouter.get("/", (req, res) => res.send("User Service Running"));
 
 // Mount the userRouter on /users
 app.use("/users", userRouter);
 
 // Start Server
-app.listen(4100, () => console.log("User Service running on port 4100"));
+app.listen(process.env.APP_PORT, () => console.log(`User Service running on port ${process.env.APP_PORT}`));
