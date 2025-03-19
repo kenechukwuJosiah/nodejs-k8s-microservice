@@ -13,7 +13,7 @@ spec:
     metadata:
       labels:
         app: {{ $fullname }}
-      annotations: 
+      annotations:
         checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
     spec:
       containers:

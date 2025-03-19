@@ -13,7 +13,7 @@ mapconfig:
 
 service:
   name: user-service
-  type: LoadBalancer
+  type: ClusterIP
   internalPort: 4100
   externalPort: 4100
 

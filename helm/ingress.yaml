@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nodejs-k8s-ingress
+  labels:
+    app: nodejs-k8s-ingress
+spec:
+  rules:
+  - host: myapp.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/report"
+        backend:
+          service:
+            name: nodejs-k8s-report-report-service
+            port: 
+              number: 4000
+      - pathType: Prefix
+        path: "/users"
+        backend:
+          service:
+            name: nodejs-k8s-user-service
+            port:
+              number: 4100
