@@ -11,8 +11,10 @@ const redis = new Redis({
 
 const USER_ACTIONS_KEY = "user:actions";
 
+const userRouter = express.Router();
+
 // Login Endpoint
-app.post("/login", async (req, res) => {
+userRouter.post("/login", async (req, res) => {
   const { username } = req.body;
   const action = `User ${username} logged in at ${new Date().toISOString()}`;
   
@@ -21,7 +23,7 @@ app.post("/login", async (req, res) => {
 });
 
 // Update Profile Endpoint
-app.post("/update-profile", async (req, res) => {
+userRouter.post("/update-profile", async (req, res) => {
   const { username, changes } = req.body;
   const action = `User ${username} updated profile: ${JSON.stringify(changes)} at ${new Date().toISOString()}`;
   
@@ -31,6 +33,9 @@ app.post("/update-profile", async (req, res) => {
 
 // Health Check
 app.get("/", (req, res) => res.send("User Service Running"));
+
+// Mount the userRouter on /users
+app.use("/users", userRouter);
 
 // Start Server
 app.listen(4100, () => console.log("User Service running on port 4100"));
