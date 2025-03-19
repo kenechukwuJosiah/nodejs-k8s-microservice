@@ -2,6 +2,9 @@ redis:
   REDIS_HOST: redis-master
   REDIS_PORT: 6379
 
+app:
+  APP_PORT: 4100
+
 replicaCount: 2
 
 image:

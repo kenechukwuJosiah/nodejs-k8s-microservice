@@ -26,11 +26,11 @@ spec:
               name: {{ .Release.Name }}-configmap
         livenessProbe:
           httpGet:
-            path: /
+            path: /report
             port: {{ .Values.service.internalPort | int }}
         readinessProbe:
           httpGet:
-            path: /
+            path: /report
             port: {{ .Values.service.internalPort | int }}
         resources:
 {{ toYaml .Values.resources | indent 10 }}
