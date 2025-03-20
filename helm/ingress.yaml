@@ -13,7 +13,7 @@ spec:
         path: "/report"
         backend:
           service:
-            name: nodejs-k8s-report-report-service
+            name: nodejs-k8s-r-report-service
             port: 
               number: 4000
       - pathType: Prefix
