@@ -31,5 +31,8 @@ router.get("/", (req, res) => res.send("Report Service Running"));
 
 app.use("/report", router);
 
+console.log(`${process.env.TEST_PASSWORD}`);
+console.log(`${process.env.TEST_TOKEN}`);
+
 // Start Server
 app.listen(process.env.APP_PORT, () => console.log(`User Service running on port ${process.env.APP_PORT}`));
