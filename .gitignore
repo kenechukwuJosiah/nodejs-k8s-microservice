@@ -52,3 +52,4 @@ instance
 
 /helm/report-service/values.yaml
 /helm/user-service/values.yaml
+/helm/pg-service/values.yaml
