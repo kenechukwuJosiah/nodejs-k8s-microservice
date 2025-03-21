@@ -57,4 +57,4 @@ console.log(`${process.env.TEST_PASSWORD}`);
 console.log(`${process.env.TEST_TOKEN}`);
 
 // Start Server
-app.listen(process.env.APP_PORT, () => console.log(`User Service running on port ${process.env.APP_PORT}`));
+app.listen(process.env.APP_PORT, () => console.log(`REPORT Service running on port ${process.env.APP_PORT}`));

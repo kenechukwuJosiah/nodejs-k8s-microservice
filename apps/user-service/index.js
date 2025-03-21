@@ -10,6 +10,10 @@ const pgClient = new Client({
   port: process.env.POSTGRES_PORT || 5432,
 });
 
+pgClient.connect()
+  .then(() => console.log("Connected to PostgreSQL"))
+  .catch(err => console.error("Connection error", err.stack));
+
 const app = express();
 app.use(express.json());
 
