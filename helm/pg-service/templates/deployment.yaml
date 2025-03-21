@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: {{ $fullname := printf "%s-%s" .Release.Name .Chart.Name | trunc 63 | trimSuffix "-" }}
+  name: {{ $fullname }}
+  labels:
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+spec:
+  selector:
+    matchLabels:
+      app: {{ $fullname }}
+  replicas: {{ default 1 .Values.replicaCount | int }}
+  template:
+    metadata:
+      labels:
+        app: {{ $fullname }}
+    spec:
+      volumes:
+      - name: {{ $fullname }}-volumn
+        persistentVolumeClaim:
+        claimName: {{ $fullname }}-pvc
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: {{ .Values.service.targetPort | int }}
+        envFrom:
+        - configMapRef:
+            name: {{ .Chart.Name }}-configmap
+        - secretRef:
+            name: {{ .Chart.Name }}-secret
+        volumeMounts:
+        - name: {{ $fullname }}-volumn
+          mountPath: /var/lib/postgresql/data
+        resources:
+{{ toYaml .Values.resources | indent 10 }}

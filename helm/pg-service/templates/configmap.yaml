@@ -1,0 +1,7 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: {{ .Chart.Name }}-configmap
+  namespace: {{ .Values.mapconfig.namespace }}
+data:
+  POSTGRES_DB: "{{ .Values.postgres.POSTGRES_DB }}"
