@@ -1,5 +1,14 @@
 const express = require("express");
 const Redis = require("ioredis");
+const { Client } = require("pg");
+
+const pgClient = new Client({
+  user: process.env.POSTGRES_USER,
+  host: process.env.POSTGRES_HOST,
+  database: process.env.POSTGRES_DB,
+  password: process.env.POSTGRES_PASSWORD,
+  port: process.env.POSTGRES_PORT || 5432,
+});
 
 const app = express();
 app.use(express.json());
@@ -29,6 +38,16 @@ userRouter.post("/update-profile", async (req, res) => {
   
   await redis.lpush(USER_ACTIONS_KEY, action);
   res.json({ message: "Profile updated", action });
+});
+
+// Retrieve All Data Endpoint
+userRouter.get("/data", async (req, res) => {
+  try {
+    const result = await pgClient.query("SELECT * FROM random_data_table");
+    res.json({ data: result.rows });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to retrieve data" });
+  }
 });
 
 // Health Check

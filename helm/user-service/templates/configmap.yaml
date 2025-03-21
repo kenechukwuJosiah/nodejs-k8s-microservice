@@ -7,3 +7,4 @@ data:
   REDIS_HOST: "{{ .Values.redis.REDIS_HOST }}"
   REDIS_PORT: "{{ .Values.redis.REDIS_PORT }}"
   APP_PORT: "{{ .Values.app.APP_PORT }}"
+  POSTGRES_PORT: {{ .Values.secret.postgres.POSTGRES_PORT }}
