@@ -50,6 +50,7 @@ userRouter.get("/data", async (req, res) => {
     const result = await pgClient.query("SELECT * FROM random_data_table");
     res.json({ data: result.rows });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: "Failed to retrieve data" });
   }
 });
@@ -60,8 +61,10 @@ userRouter.get("/", (req, res) => res.send("User Service Running"));
 // Mount the userRouter on /users
 app.use("/users", userRouter);
 
-console.log(`${process.env.TEST_PASSWORD}`);
-console.log(`${process.env.TEST_TOKEN}`);
+console.log({
+  TEST_PASSWORD: process.env.TEST_PASSWORD,
+  TEST_TOKEN: process.env.TEST_TOKEN,
+})
 
 // Start Server
 app.listen(process.env.APP_PORT, () => console.log(`User Service running on port ${process.env.APP_PORT}`));

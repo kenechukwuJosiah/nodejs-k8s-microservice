@@ -1,6 +1,9 @@
 redis:
-  REDIS_HOST: redis-release-master
+  REDIS_HOST: redis-master
   REDIS_PORT: 6379
+
+app:
+  APP_PORT: 4000
 
 replicaCount: 2
 
@@ -13,7 +16,7 @@ mapconfig:
 
 service:
   name: report-service
-  type: LoadBalancer
+  type: ClusterIP
   internalPort: 4000
   externalPort: 4000
 
@@ -24,3 +27,14 @@ resources:
   requests:
     cpu: "250m"
     memory: "64Mi"
+
+secret:
+  data:
+    TEST_PASSWORD: *****8
+    TEST_TOKEN: ******
+  postgres:
+    POSTGRES_DB: *******
+    POSTGRES_USER: ******
+    POSTGRES_PASSWORD: *******
+    POSTGRES_PORT: ****
+    POSTGRES_HOST: ********
