@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a Node.js-based microservice architecture deployed on Kubernetes using helm, nodejs and docker.
+This project is a Node.js-based microservice architecture deployed on Kubernetes using helm.
 
 ## Architecture
 
