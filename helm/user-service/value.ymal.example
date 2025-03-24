@@ -1,21 +1,24 @@
 redis:
-  REDIS_HOST: redis-release-master
+  REDIS_HOST: redis-master
   REDIS_PORT: 6379
+
+app:
+  APP_PORT: 4100
 
 replicaCount: 2
 
 image:
-  name: kenechukwujosiah/nodejs-k8s-report
+  name: kenechukwujosiah/nodejs-k8s-user
   tag: latest
 
 mapconfig:
   namespace: default
 
 service:
-  name: report-service
-  type: LoadBalancer
-  internalPort: 4000
-  externalPort: 4000
+  name: user-service
+  type: ClusterIP
+  internalPort: 4100
+  externalPort: 4100
 
 resources:
   limits:
@@ -24,3 +27,14 @@ resources:
   requests:
     cpu: "250m"
     memory: "64Mi"
+
+secret:
+  data:
+    TEST_PASSWORD: *******
+    TEST_TOKEN: ********
+  postgres:
+    POSTGRES_DB: *****
+    POSTGRES_USER: ******
+    POSTGRES_PASSWORD: ******
+    POSTGRES_PORT: *****
+    POSTGRES_HOST: ******
