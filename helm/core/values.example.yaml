@@ -1,0 +1,21 @@
+issuer:
+  email: johndoe@example.com
+  server: https://acme-v02.api.letsencrypt.org/directory
+  name: letsencrypt-prod
+
+secret:
+  name: tls-secret
+  tls:
+    crt: "******"
+    key: "******"
+
+ingress:
+  name: ingress-name
+  host: example.com
+  service:
+    report:
+      name: service-name
+      port: 4000
+    user:
+      name: service-name
+      port: 4100

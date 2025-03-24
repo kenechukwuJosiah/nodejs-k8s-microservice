@@ -33,6 +33,8 @@ lib64
 parts
 sdist
 var
+.pem
+*.pem
 *.egg-info
 *.egg-info/PKG-INFO
 *.egg-info/SOURCES.txt
@@ -53,3 +55,5 @@ instance
 /helm/report-service/values.yaml
 /helm/user-service/values.yaml
 /helm/pg-service/values.yaml
+/helm/core/output.yaml
+/helm/core/values.yaml
