@@ -50,8 +50,8 @@ userRouter.get("/data", async (req, res) => {
     const result = await pgClient.query("SELECT * FROM random_data_table");
     res.json({ data: result.rows });
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ error: "Failed to retrieve data" });
+    console.log({error});
+    res.status(500).json({ error: "Failed to retrieve data", data: error });
   }
 });
 
