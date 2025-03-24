@@ -22,10 +22,12 @@ To set up the project locally:
 2. Navigate to each service directory and install dependencies using `npm install`.
 3. Install kubectl and helm.
 4. Install redis using helm: `helm install redis bitnami/redis --set auth.enabled=false --set replica.replicaCount=1`.
-5. Install postgres-service first using: `helm install <release name> ./helm/postgres-service --values ./helm/postgres-service/values.yaml.example`.
-6. Install ngnix-ingress controller.
-7. Apply ingress file in helm folder: `kubectl apply -f ./helm/ingress.yaml`.
-8. Install other charts like user-service and report-service using: `helm install <release name> ./helm/<service-name> --values ./helm/<service-name>/values.yaml.example`.
+5. Install core resources from /helm/core folder:
+   - `helm template ./helm/core > ./helm/core/output.yaml`
+   - `kubectl apply -f ./helm/core/output.yaml`
+6. Install other charts like user-service and report-service using: `helm install <release name> ./helm/<service-name> --values ./helm/<service-name>/values.yaml.example`.
+
+**Note:** Make sure to update the values.example.yaml file in the /helm/core folder according to your needs.
 
 ## Usage
 
